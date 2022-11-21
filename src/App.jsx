@@ -3,6 +3,7 @@ import './scss/styles.css';
 import { Routes, Route } from 'react-router-dom';
 import Start from './screens/Start/Start';
 import NavBar from './components/NavBar/NavBar';
+import Home from './screens/Home/Home';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
       <NavBar />
       <div className='global-main-container'>
         <Routes>
-          <Route path='/' element={<Start />}></Route>
+          <Route path='/' element={<Home />}></Route>
         </Routes>
       </div>
     </div>

@@ -6,19 +6,15 @@
   font-size: 0.9rem;
   font-weight: 900;
   text-decoration: none;
-  color: $light;
-  background-color: $primary-light;
   padding: 1rem 1.5rem;
   border: none;
   border-radius: $border-radius;
   cursor: pointer;
   transition: $transition-speed;
   box-shadow: rgba(40, 40, 40, 0.4) 0px 2px 8px 0px;
-
+  filter: opacity(0.7);
   &:hover {
-    outline: none;
-    background-color: $light;
-    color: $primary-dark;
+    filter: opacity(1);
   }
 }
 
@@ -27,48 +23,46 @@
   width: 100%;
 }
 
+.btn-primary {
+  color: $light;
+  background-color: $primary-light;
+  &:hover {
+    outline: none;
+    background-color: $light;
+    color: $primary-dark;
+  }
+}
+
+.btn-light {
+  color: $primary-dark;
+  background-color: $light;
+  &:hover {
+    background-color: $primary-light;
+    color: $light;
+  }
+}
+
 .btn-yellow {
   background-color: $accent-1;
   color: $primary-dark;
-  &:hover {
-    background-color: $accent-1-2;
-    color: $primary-dark;
-  }
 }
 
 .btn-red {
   background-color: $accent-2;
   color: $primary-dark;
-
-  &:hover {
-    background-color: $accent-2-2;
-    color: $primary-dark;
-  }
 }
 
 .btn-purple {
   background-color: $accent-3;
   color: $primary-dark;
-  &:hover {
-    background-color: $accent-3-3;
-    color: $primary-dark;
-  }
 }
 
 .btn-green {
   background-color: $accent-4;
   color: $primary-dark;
-  &:hover {
-    background-color: $accent-4-4;
-    color: $primary-dark;
-  }
 }
 
 .btn-blue {
   background-color: $accent-5;
   color: $primary-dark;
-  &:hover {
-    background-color: $accent-5-5;
-    color: $primary-dark;
-  }
 }

@@ -1,0 +1,42 @@
+.home-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-logo-container {
+  background-color: $primary-dark;
+  box-shadow: $box-shadow;
+  height: 100vh;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & svg {
+    width: 5rem;
+    margin: 1rem;
+  }
+
+  & h1 {
+    font-size: 3rem;
+    font-weight: 500;
+  }
+}
+
+.home-form-container {
+  background-color: $primary;
+  height: 100vh;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  & h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}

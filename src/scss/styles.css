@@ -261,11 +261,11 @@ body {
 }
 
 .icon-secondary {
-  color: #9c4854;
+  color: #b35a5a;
   transition: 600ms;
 }
 .icon-secondary .link-text {
-  color: #9c4854;
+  color: #b35a5a;
 }
 
 .logo {
@@ -338,19 +338,16 @@ svg {
   font-size: 0.9rem;
   font-weight: 900;
   text-decoration: none;
-  color: rgba(227, 227, 227, 0.649);
-  background-color: #414854;
   padding: 1rem 1.5rem;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.25rem;
   cursor: pointer;
   transition: 600ms;
   box-shadow: rgba(40, 40, 40, 0.4) 0px 2px 8px 0px;
+  filter: opacity(0.7);
 }
 .btn:hover {
-  outline: none;
-  background-color: rgba(227, 227, 227, 0.649);
-  color: #21252b;
+  filter: opacity(1);
 }
 
 .btn-width {
@@ -358,49 +355,134 @@ svg {
   width: 100%;
 }
 
+.btn-primary {
+  color: rgba(227, 227, 227, 0.649);
+  background-color: #414854;
+}
+.btn-primary:hover {
+  outline: none;
+  background-color: rgba(227, 227, 227, 0.649);
+  color: #21252b;
+}
+
+.btn-light {
+  color: #21252b;
+  background-color: rgba(227, 227, 227, 0.649);
+}
+.btn-light:hover {
+  background-color: #414854;
+  color: rgba(227, 227, 227, 0.649);
+}
+
 .btn-yellow {
   background-color: #e8a12e;
   color: #21252b;
 }
-.btn-yellow:hover {
-  background-color: #f1c47d;
-  color: #21252b;
-}
 
 .btn-red {
-  background-color: #9c4854;
-  color: #21252b;
-}
-.btn-red:hover {
-  background-color: #b35a68;
+  background-color: #b35a5a;
   color: #21252b;
 }
 
 .btn-purple {
-  background-color: #8d6595;
-  color: #21252b;
-}
-.btn-purple:hover {
-  background-color: #9e7aa5;
+  background-color: #a15baf;
   color: #21252b;
 }
 
 .btn-green {
-  background-color: #4ca855;
-  color: #21252b;
-}
-.btn-green:hover {
-  background-color: #84cf91;
+  background-color: #5bc36c;
   color: #21252b;
 }
 
 .btn-blue {
-  background-color: #466c9d;
+  background-color: #3477c4;
   color: #21252b;
 }
-.btn-blue:hover {
-  background-color: #5981b4;
+
+.register-form {
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+.register-form .form-send {
+  text-align: center;
+  margin: 0.5rem 0;
+  font-size: 0.8rem;
+  color: #5bc36c;
+}
+
+.register-element {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+.register-element label {
+  margin-bottom: 0.5rem;
+}
+.register-element .errors {
+  height: 1rem;
+  padding: 0.3rem 0;
+  font-size: 0.8rem;
+  color: #b35a5a;
+}
+
+.form-input {
+  width: 100%;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1rem;
+  font-weight: 300;
+  color: rgba(227, 227, 227, 0.649);
+  background-color: #414854;
+  padding: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  transition: 600ms;
+  box-shadow: rgba(40, 40, 40, 0.4) 0px 2px 8px 0px;
+}
+.form-input:hover {
+  background-color: #21252b;
+  color: #e8a12e;
+  outline: none;
+}
+.form-input:focus-within,
+.form-input :focus-visible,
+.form-input :target {
+  outline: none;
+  background-color: #e8a12e;
   color: #21252b;
+}
+.form-input:focus-within::-moz-placeholder, .form-input :focus-visible::-moz-placeholder, .form-input :target::-moz-placeholder {
+  color: #21252b;
+  opacity: 0.5;
+}
+.form-input:focus-within:-ms-input-placeholder, .form-input :focus-visible:-ms-input-placeholder, .form-input :target:-ms-input-placeholder {
+  color: #21252b;
+  opacity: 0.5;
+}
+.form-input:focus-within::placeholder,
+.form-input :focus-visible::placeholder,
+.form-input :target::placeholder {
+  color: #21252b;
+  opacity: 0.5;
+}
+.form-input option {
+  padding: 1rem 0;
+  margin: 1rem;
+}
+
+input::-moz-placeholder {
+  opacity: 0.5;
+  color: rgba(227, 227, 227, 0.649);
+}
+
+input:-ms-input-placeholder {
+  opacity: 0.5;
+  color: rgba(227, 227, 227, 0.649);
+}
+
+input::placeholder {
+  opacity: 0.5;
+  color: rgba(227, 227, 227, 0.649);
 }
 
 .container {
@@ -445,4 +527,44 @@ svg {
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.8;
+}
+
+.home-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-logo-container {
+  background-color: #21252b;
+  box-shadow: rgba(40, 40, 40, 0.4) 0px 2px 8px 0px;
+  height: 100vh;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-logo-container svg {
+  width: 5rem;
+  margin: 1rem;
+}
+.home-logo-container h1 {
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.home-form-container {
+  background-color: #282c34;
+  height: 100vh;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home-form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
 }/*# sourceMappingURL=styles.css.map */

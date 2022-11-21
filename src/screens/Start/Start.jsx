@@ -15,13 +15,14 @@ const Start = () => {
               doloribus sapiente dolor nulla accusamus veniam harum minus animi
               voluptas culpa!
             </p>
-            <Button className='btn btn-width'>Inicio</Button>
-            <Button className='btn mr-1'>Inicio</Button>
+            <Button className='btn btn-primary btn-width'>Inicio</Button>
+            <Button className='btn btn-primary mr-1'>Inicio</Button>
             <Button className='btn btn-yellow mr-1'>Inicio</Button>
             <Button className='btn btn-red mr-1'>Inicio</Button>
             <Button className='btn btn-purple mr-1'>Inicio</Button>
             <Button className='btn btn-green mr-1'>Inicio</Button>
             <Button className='btn btn-blue mr-1'>Inicio</Button>
+            <Button className='btn btn-light mr-1'>Inicio</Button>
           </article>
 
           <article className='start-article'>
