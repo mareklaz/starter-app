@@ -1,0 +1,23 @@
+.start-article {
+  margin-bottom: 2rem;
+
+  &::after {
+    content: '';
+    display: block;
+    align-self: center;
+    width: 30%;
+    margin: 2rem auto 0rem;
+    border-bottom: 1px solid $primary-light;
+    box-shadow: rgba(40, 40, 40, 0.4) 0px 2px 8px 0px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  p {
+    font-size: 1rem;
+    font-weight: 300;
+    line-height: 1.8;
+  }
+}

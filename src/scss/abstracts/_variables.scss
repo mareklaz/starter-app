@@ -1,19 +1,21 @@
 // Color Variables
-$yellow: #f7ec09;
-$red: #f05454;
-$green: #5bbf6c;
+$primary: #282c34;
+$primary-dark: #21252b;
+$primary-light: #414854;
 
-$primary: #282c35;
-$primary-dark: #1b1e24;
-$primary-light: #484f5f;
-
-$light: #f0f1f4;
-$accent: #e6ad60;
-
-$var-red: #b35865;
-$var-purple: #8d6595;
+$light: rgba(227, 227, 227, 0.649);
+$accent-1: #e8a12e;
+$accent-1-2: #f1c47d;
+$accent-2: #9c4854;
+$accent-2-2: #b35a68;
+$accent-3: #8d6595;
+$accent-3-3: #9e7aa5;
+$accent-4: #4ca855;
+$accent-4-4: #84cf91;
+$accent-5: #466c9d;
+$accent-5-5: #5981b4;
 
 // Transition Variables
 $transition-speed: 600ms;
 
-$border-radius: 0.25rem;
+$border-radius: 0.5rem;
