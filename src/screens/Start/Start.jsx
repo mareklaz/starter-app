@@ -3,6 +3,8 @@ import Button from '../../components/Button/Button';
 import Header from '../../components/Header/Header';
 
 const Start = () => {
+  
+
   return (
     <>
       <Header subtitle='Bienvenidos a Starter'>Start</Header>

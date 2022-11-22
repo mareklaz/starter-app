@@ -3,19 +3,21 @@ import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import RegisterFormSchema from './RegisterFormSchema';
 import Button from '../../Button/Button';
+import { createUser } from '../../../services/UserServices';
+import { handleFormChange } from '../../../screens/Home/Home';
 // Screens
 
 // Componentes
 
 // App
 const INITIAL_VALUES = {
-  name: '',
+  userName: '',
   email: '',
-  profile: '',
+  password: '',
 };
 
 const RegisterForm = () => {
-  const [formSend, setFormSend] = useState(false);
+  // const [formSend, setFormSend] = useState(false);
 
   const {
     values,
@@ -25,40 +27,60 @@ const RegisterForm = () => {
     handleBlur,
     resetForm,
     setFieldValue,
+    setFieldError,
   } = useFormik({
     onSubmit: onSubmit,
     initialValues: INITIAL_VALUES,
     validationSchema: RegisterFormSchema,
-    // validateOnBlur: RegisterFormSchema,
     validateOnBlur: false,
+    validateOnChange: false,
   });
 
   function onSubmit(values) {
+    console.log('Valores', values);
+
+    createUser(values)
+      .then((user) => {
+        console.log('Usuario creado', user);
+        handleFormChange(true);
+      })
+      .catch((err) => {
+        console.log(err.response.data);
+        err.response.data &&
+          Object.keys(err.response.data.errors).forEach((errorKey) => {
+            setFieldError(errorKey, err.response.data.errors[errorKey]);
+          });
+      })
+      .finally(() => {
+        console.log('Registration Done.');
+      });
     resetForm();
-    console.log('Values', values);
-    console.log('Formulario Enviado');
-    setFormSend(true);
-    setTimeout(() => {
-      setFormSend(false);
-    }, 3000);
+    // setFormSend(true);
+    // setTimeout(() => {
+    //   setFormSend(false);
+    // }, 3000);
   }
 
   return (
     <form onSubmit={handleSubmit} className='register-form'>
       <div className='register-element'>
-        {/* <label htmlFor='name'>Usuario</label> */}
+        {/* <label htmlFor='userName'>Usuario</label> */}
         <input
           type='text'
-          id='name'
+          id='userName'
           placeholder='Escribe tu nombre de usuario'
-          name='name'
-          value={values.name}
+          name='userName'
+          value={values.userName}
           onChange={handleChange}
           onBlur={handleBlur}
           className='form-input'
         />
         <span className='errors'>
-          {errors.name ? <span className='errors'>{errors.name}</span> : ''}
+          {errors.userName ? (
+            <span className='errors'>{errors.userName}</span>
+          ) : (
+            ''
+          )}
         </span>
       </div>
       <div className='register-element'>
@@ -98,10 +120,10 @@ const RegisterForm = () => {
         </span>
       </div>
 
-      <Button type='submit' className='btn'>
+      <button type='submit' className='btn btn-green'>
         Registrar
-      </Button>
-      {formSend && <span className='form-send'>Formulario Enviado!</span>}
+      </button>
+      {/* {formSend && <span className='form-send'>Formulario Enviado!</span>} */}
     </form>
   );
 };
