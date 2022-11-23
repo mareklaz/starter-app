@@ -14,5 +14,5 @@ export const getAccessToken = () => {
 
 export const logout = () => {
   localStorage.removeItem(ACCESS_TOKEN_KEY);
-  window.location.assign('/login'); // lo "mismo" que el redirect, para redireccionar a /login
+  window.location.assign('/'); // lo "mismo" que el redirect, para redireccionar a /login
 };

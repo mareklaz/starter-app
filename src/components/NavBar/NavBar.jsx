@@ -54,19 +54,7 @@ const NavBar = () => {
             <span className='link-text'>Configuracion</span>
           </Link>
         </li>
-        <li className='nav-item'>
-          <Link to='registro' className='nav-link'>
-            <UserPlusIcon strokeWidth={1} className='icon-primary' />
-            <span className='link-text'>Registro</span>
-          </Link>
-        </li>
 
-        <li className='nav-item'>
-          <Link to='login' className='nav-link'>
-            <UserCircleIcon strokeWidth={1} className='icon-primary' />
-            <span className='link-text'>Login</span>
-          </Link>
-        </li>
         <li className='nav-item'>
           <div className='nav-link' onClick={logout}>
             <XCircleIcon strokeWidth={1} className='icon-secondary' />

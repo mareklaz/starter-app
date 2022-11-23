@@ -1,20 +1,21 @@
 // Import
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 import { useFormik } from 'formik';
+import { login as userLogin } from '../../../services/AuthServices';
+import AuthContext from '../../../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import LoginFormSchema from './LoginFormSchema';
 import Button from '../../Button/Button';
-// Screens
 
-// Componentes
-
-// App
 const INITIAL_VALUES = {
   email: '',
   password: '',
 };
 
 const LoginForm = () => {
-  const [formSend, setFormSend] = useState(false);
+  // const [formSend, setFormSend] = useState(false);
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const {
     values,
@@ -24,22 +25,39 @@ const LoginForm = () => {
     handleBlur,
     resetForm,
     setFieldValue,
+    setFieldError,
   } = useFormik({
     onSubmit: onSubmit,
     initialValues: INITIAL_VALUES,
     validationSchema: LoginFormSchema,
-    // validateOnBlur: LoginFormSchema,
     validateOnBlur: false,
+    validateOnChange: false,
   });
 
   function onSubmit(values) {
-    resetForm();
-    console.log('Values', values);
-    console.log('Formulario Enviado');
-    setFormSend(true);
-    setTimeout(() => {
-      setFormSend(false);
-    }, 3000);
+    userLogin(values)
+      .then(({ accessToken }) => {
+        login(accessToken);
+        navigate('/start');
+      })
+      .catch((err) => {
+        console.log('En login: ', err.response.data);
+        err.response.data &&
+          Object.keys(err.response.data.errors).forEach((errorKey) => {
+            setFieldError(errorKey, err.response.data.errors[errorKey]);
+          });
+      })
+      .finally(() => {
+        console.log('User Login Successfull');
+      });
+
+    // resetForm();
+    // console.log('Values', values);
+    // console.log('Formulario Enviado');
+    // setFormSend(true);
+    // setTimeout(() => {
+    //   setFormSend(false);
+    // }, 3000);
   }
 
   return (
@@ -84,7 +102,7 @@ const LoginForm = () => {
       <Button type='submit' className='btn'>
         Login
       </Button>
-      {formSend && <span className='form-send'>Formulario Enviado!</span>}
+      {/* {formSend && <span className='form-send'>Formulario Enviado!</span>} */}
     </form>
   );
 };

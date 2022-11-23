@@ -39,13 +39,12 @@ const RegisterForm = () => {
   function onSubmit(values) {
     console.log('Valores', values);
 
-    createUser(values)
+    createUser({ ...values })
       .then((user) => {
         console.log('Usuario creado', user);
         handleFormChange(true);
       })
       .catch((err) => {
-        console.log(err.response.data);
         err.response.data &&
           Object.keys(err.response.data.errors).forEach((errorKey) => {
             setFieldError(errorKey, err.response.data.errors[errorKey]);
@@ -54,7 +53,7 @@ const RegisterForm = () => {
       .finally(() => {
         console.log('Registration Done.');
       });
-    resetForm();
+    // resetForm();
     // setFormSend(true);
     // setTimeout(() => {
     //   setFormSend(false);
@@ -120,9 +119,9 @@ const RegisterForm = () => {
         </span>
       </div>
 
-      <button type='submit' className='btn btn-green'>
+      <Button type='submit' className='btn btn-green'>
         Registrar
-      </button>
+      </Button>
       {/* {formSend && <span className='form-send'>Formulario Enviado!</span>} */}
     </form>
   );

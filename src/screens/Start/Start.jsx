@@ -1,9 +1,10 @@
 import React from 'react';
 import Button from '../../components/Button/Button';
 import Header from '../../components/Header/Header';
+import { useAuthContext } from '../../context/AuthContext';
 
 const Start = () => {
-  
+  const { user } = useAuthContext();
 
   return (
     <>
@@ -43,6 +44,7 @@ const Start = () => {
               voluptas culpa!
             </p>
           </article>
+          <h3>{user ? user.userName : 'Cargado usuario...'}</h3>
         </div>
       </div>
     </>

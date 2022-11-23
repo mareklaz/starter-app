@@ -4,6 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import Start from './screens/Start/Start';
 import NavBar from './components/NavBar/NavBar';
 import Home from './screens/Home/Home';
+import ProtectedRoute from './components/ProtectedRoutes/ProtectedRoutes';
 
 function App() {
   return (
@@ -12,6 +13,14 @@ function App() {
       <div className='global-main-container'>
         <Routes>
           <Route path='/' element={<Home />}></Route>
+          <Route
+            path='/start'
+            element={
+              <ProtectedRoute>
+                <Start />
+              </ProtectedRoute>
+            }
+          ></Route>
         </Routes>
       </div>
     </div>
