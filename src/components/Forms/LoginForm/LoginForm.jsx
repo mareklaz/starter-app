@@ -33,6 +33,8 @@ const LoginForm = () => {
     validateOnBlur: false,
     validateOnChange: false,
   });
+  console.log(setFieldError);
+  let validation = {};
 
   function onSubmit(values) {
     userLogin(values)
@@ -42,13 +44,18 @@ const LoginForm = () => {
       })
       .catch((err) => {
         console.log('En login: ', err.response.data);
+        validation = {
+          ...validation,
+          info: err.response.data,
+        };
         err.response.data &&
           Object.keys(err.response.data.errors).forEach((errorKey) => {
+            console.log('test', errorKey);
             setFieldError(errorKey, err.response.data.errors[errorKey]);
           });
       })
       .finally(() => {
-        console.log('User Login Successfull');
+        // console.log('User Login Successfull');
       });
 
     // resetForm();
@@ -59,9 +66,10 @@ const LoginForm = () => {
     //   setFormSend(false);
     // }, 3000);
   }
-
+  console.log('Validacion ', validation);
   return (
     <form onSubmit={handleSubmit} className='register-form'>
+      {/* {err.response.data ? 'error' : 'nada'} */}
       <div className='register-element'>
         {/* <label htmlFor='email'>Email</label> */}
         <input
@@ -93,6 +101,8 @@ const LoginForm = () => {
         <span className='errors'>
           {errors.password ? (
             <span className='errors'>{errors.password}</span>
+          ) : '' || errors.message ? (
+            <span className='errors'>{errors.message}</span>
           ) : (
             ''
           )}

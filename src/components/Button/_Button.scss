@@ -76,8 +76,13 @@
   font: inherit;
   cursor: pointer;
   outline: inherit;
+  transition: $transition-speed;
 }
 
 .btn-link-yellow {
   color: $accent-1;
+  filter: opacity(0.7);
+  &:hover {
+    filter: opacity(1);
+  }
 }

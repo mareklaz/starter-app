@@ -18,7 +18,7 @@ const Home = () => {
             <h2>Registro</h2>
             <RegisterForm />
             <p>
-              ¿Estas registrado?{' '}
+              ¿Estas registrador?{' '}
               <button
                 type='button'
                 onClick={() => {
@@ -26,7 +26,7 @@ const Home = () => {
                 }}
                 className='btn-link btn-link-yellow'
               >
-                Haz login
+                Login
               </button>
             </p>
           </>

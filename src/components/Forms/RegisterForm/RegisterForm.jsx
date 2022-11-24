@@ -45,13 +45,15 @@ const RegisterForm = () => {
         handleFormChange(true);
       })
       .catch((err) => {
+        console.log('Error DB', err.response.data);
+        setFieldError('message', err.response.data.message);
         err.response.data &&
           Object.keys(err.response.data.errors).forEach((errorKey) => {
             setFieldError(errorKey, err.response.data.errors[errorKey]);
           });
       })
       .finally(() => {
-        console.log('Registration Done.');
+        console.log('Terminado');
       });
     // resetForm();
     // setFormSend(true);
@@ -113,13 +115,15 @@ const RegisterForm = () => {
         <span className='errors'>
           {errors.password ? (
             <span className='errors'>{errors.password}</span>
+          ) : '' || errors.message ? (
+            <span className='errors'>{errors.message}</span>
           ) : (
             ''
           )}
         </span>
       </div>
 
-      <Button type='submit' className='btn btn-green'>
+      <Button type='submit' className='btn'>
         Registrar
       </Button>
       {/* {formSend && <span className='form-send'>Formulario Enviado!</span>} */}
